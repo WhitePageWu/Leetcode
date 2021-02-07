@@ -54,7 +54,7 @@ public class Leetcode_144 {
     public static void preOrderIteration3(TreeNode root) {
         List list = new ArrayList<Integer>();
         if (root == null) {
-            return list;
+            return;
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
