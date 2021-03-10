@@ -69,5 +69,22 @@ public class Leetcode_144 {
             }
         }
     }
+    //迭代三
+    public List<Integer> preorderTraversal4(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+        Stack<TreeNode> stack=new Stack<>();
+        while(root!=null||(!stack.empty())){
+            if(root!=null){
+                list.add(root.val);//步骤一，取根节点的值
+                stack.push(root);//把根节点放入栈中
+                root=root.left;//步骤二，遍历左子树
+            }
+            else{
+                TreeNode tem=stack.pop();
+                root=tem.right;//步骤三，遍历右子树
+            }
+        }
+        return list;
+    }
 
 }
