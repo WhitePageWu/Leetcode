@@ -15,7 +15,7 @@ public class Leetcode_224 {
         for (int i =0;i<s.length();i++){
             char cur = s.charAt(i);
             if (cur!='('&&cur!=')'&&cur!='"'){
-              if (isInteger(cur+"")){
+              if (isInteger(cur+"")||cur=='-'){
                   int j = i;
                   while (j<s.length()&&isInteger(s.charAt(j)+"")){
                       j++;
