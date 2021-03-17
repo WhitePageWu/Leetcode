@@ -1,8 +1,11 @@
 package LinkList;
 
+import BinaryTree.TreeNode;
+
 import java.util.Stack;
 
 public class Leetcodd_206 {
+    //迭代
     public static ListNode reverseList(ListNode head) {
         if(head==null)
             return null;
@@ -13,7 +16,19 @@ public class Leetcodd_206 {
         head.next=null;
         return last;
     }
-
+    //递归
+    public static  ListNode reverseList2(ListNode head) {
+        if(head==null){
+            return null;
+        }
+        if (head.next==null){
+            return head;
+        }
+        ListNode last = reverseList2(head.next);
+        head.next.next=head;
+        head.next=null;
+        return last;
+    }
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -28,5 +43,7 @@ public class Leetcodd_206 {
         node5.next=node6;
         reverseList(node1);
         System.out.println("e");
+        String s="aaa";
+        s.startsWith("4");
     }
 }

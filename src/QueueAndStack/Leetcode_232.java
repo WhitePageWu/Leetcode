@@ -6,10 +6,10 @@ public class Leetcode_232 {
 
 }
 
-class MyQueue {
+class MyQueues {
     Stack<Integer> stack1,stack2;
     /** Initialize your data structure here. */
-    public MyQueue() {
+    public MyQueues() {
         stack1 = new Stack<>();
         stack2 = new Stack<>();
     }

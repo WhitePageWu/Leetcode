@@ -1,18 +1,18 @@
 import java.io.Console;
+import java.util.Random;
 
 public class Test {
 
     public static void main(String[] args) {
-        String s1 = "hello";
-        String s2 = new String("hello");
-        String s3 =s1;
-        String s4 = s2;
-        System.out.println(s1==s2);
-        System.out.println(s1.equals(s2));
-        System.out.println(s1==s3);
-        System.out.println(s1==s2);
-        System.out.println("hello"==s1);
-        System.out.println("--------");
+        System.out.println((6+4>>1));
+        System.out.println(get());
+        int[]a[]  = new int[4][4];
     }
-
+    public static int get(){
+        try {
+            return 0;
+        }finally {
+            return 1;
+        }
+    }
 }
