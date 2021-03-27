@@ -24,6 +24,10 @@ public class Leetcode_113 {
         dfs(root.right,targetSum);
         path.pollLast();
     }
+
+    public static void main(String[] args) {
+
+    }
     public List<List<Integer>> pathSum1(TreeNode root, int targetSum) {
         if (root==null){
             return ret;
