@@ -1,6 +1,6 @@
 package LinkList;
 
-public class Leetcode_92 {
+public class zy_Leetcode_92 {
     ListNode successor = null; // 后驱节点
     public  ListNode reverseBetween(ListNode head, int left, int right) {
         if (left==1){
@@ -35,6 +35,6 @@ public class Leetcode_92 {
         node2.next=node3;
         node3.next=node4;
         node4.next=node5;
-        reverseBetween(node1,2,4);
+//        reverseBetween(node1,2,4);
     }
 }

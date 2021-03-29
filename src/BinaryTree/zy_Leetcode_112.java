@@ -1,7 +1,7 @@
 package BinaryTree;
 
 //路径总和
-public class Leetcode_112 {
+public class zy_Leetcode_112 {
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode(5);
         TreeNode node2 = new TreeNode(4);

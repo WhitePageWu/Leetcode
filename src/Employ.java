@@ -1,3 +1,7 @@
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.Random;
 
 public class Employ {
@@ -40,12 +44,26 @@ public class Employ {
         System.out.println("Block2");
     }
 
-    public static void main(String[] args) {
-        System.out.println("开始");
-        Employ[] staff = new Employ[3];
-        staff[0]=new Employ("Harry",4000);
-        staff[1]=new Employ(6000);
-        staff[2]=new Employ();
+    public static void main(String[] args) throws Exception{
+//        System.out.println("开始");
+//        Employ[] staff = new Employ[3];
+//        staff[0]=new Employ("Harry",4000);
+//        staff[1]=new Employ(6000);
+//        staff[2]=new Employ();
+        Employ e = new Employ();
+        System.out.println(e.getClass().getName());
+        Class cl = Class.forName("Employ");
+        String modeifiers = Modifier.toString(cl.getModifiers());
+        if (modeifiers.length()>0)
+            System.out.println(modeifiers);
+        Constructor[] constructors = cl.getConstructors();
+        for (Constructor c:constructors){
+            String name = c.getName();
+            Class[] parameters = c.getParameterTypes();
+            for (Class x :parameters){
+                System.out.print(x+" ");
+
+            }        }
     }
 }
 

@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import LinkList.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -11,7 +13,7 @@ public class Leetcode_144 {
         TreeNode right = new TreeNode(5);
         root.right=right;
         right.right=left;
-        System.out.println(preorderTraversal1(root));;
+        System.out.println(preorderTraversal5(null));;
     }
     //方法一：递归的方法去遍历
     public static List<Integer> preorderTraversal1(TreeNode root) {
@@ -87,4 +89,23 @@ public class Leetcode_144 {
         return list;
     }
 
+    public static List<Integer> preorderTraversal5(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+        Stack<TreeNode> stack=new Stack<>();
+        if (root==null){
+            return list;
+        }
+        stack.push(root);
+        while((!stack.empty())){
+            TreeNode temp = stack.pop();
+            list.add(temp.val);
+            if (temp.right!=null){
+                stack.push(temp.right);
+            }
+            if (temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+        return list;
+    }
 }
