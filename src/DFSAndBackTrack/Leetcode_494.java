@@ -1,4 +1,4 @@
-package BackTrack;
+package DFSAndBackTrack;
 
 public class Leetcode_494 {
     int res =0;

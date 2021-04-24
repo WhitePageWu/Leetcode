@@ -1,4 +1,4 @@
-package BackTrack;
+package DFSAndBackTrack;
 
 import java.util.HashSet;
 import java.util.Set;

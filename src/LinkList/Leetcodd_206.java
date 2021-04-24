@@ -7,14 +7,15 @@ import java.util.Stack;
 public class Leetcodd_206 {
     //迭代
     public static ListNode reverseList(ListNode head) {
-        if(head==null)
-            return null;
-        if(head.next==null)
-            return head;
-        ListNode last = reverseList(head.next);
-        head.next.next=head;
-        head.next=null;
-        return last;
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur!=null){
+            ListNode next = cur.next;
+            cur.next=pre;
+            pre=cur;
+            cur=next;
+        }
+        return pre;
     }
     //递归
     public static  ListNode reverseList2(ListNode head) {
@@ -42,8 +43,5 @@ public class Leetcodd_206 {
         node4.next=node5;
         node5.next=node6;
         reverseList(node1);
-        System.out.println("e");
-        String s="aaa";
-        s.startsWith("4");
     }
 }

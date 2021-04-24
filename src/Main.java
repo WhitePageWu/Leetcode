@@ -2,9 +2,9 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
-import java.util.Random;
+import java.util.*;
 
-public class Employ {
+class Employ {
     private static int nextId;
     private int id;
     private String name="";
@@ -72,7 +72,33 @@ class Manager extends Employ{
     public double getSalary() {
         return super.getSalary();
     }
-    public Manager(){
-
+}
+public class Main {
+    public static void main(String[] args) {
+        Manager ceo =new Manager();
+        Manager cfo = new Manager();
+        Pair<Manager> a = new Pair<Manager>(ceo,cfo);
+        Pair<? extends Employ> b = a;
+        Employ first = b.getFirst();
     }
+
+}
+class Pair<T>{
+    private T first;
+    private T second;
+    public Pair(){
+        first=null;
+        second=null;
+    }
+    public Pair(T first,T second){
+        this.first=first;
+        this.second=second;
+    }
+    public T getFirst(){
+        return first;
+    }
+    public T getSecond(){return second;}
+    public void setFirst(T first){this.first=first;}
+    public void  setSecond(T second){this.second=second;}
+
 }

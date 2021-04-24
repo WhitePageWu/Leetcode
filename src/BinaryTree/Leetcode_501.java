@@ -4,7 +4,7 @@ import java.util.*;
 
 //二叉树中的众树
 public class Leetcode_501 {
-
+    int maxnum=0;
     public int[] findMode(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         Map<Integer,Integer> map = new HashMap<>();
@@ -15,30 +15,38 @@ public class Leetcode_501 {
             }else {
                 TreeNode node = stack.pop();
                 int key = node.val;
-                map.put(key,map.getOrDefault(key,0)+1);
-                node=node.right;
+                if (map.containsKey(key)){
+                    int val = map.get(key)+1;
+                    map.put(key,val);
+                    if (val>maxnum){
+                        maxnum=val;
+                    }
+                }else {
+                    map.put(key,1);
+                }
+                root=node.right;
             }
         }
-        return null;
-    }
-    public static String getMapMaxValueKey(Map<String, Double> map) {
-        List<Map.Entry<String,Double>> list = new ArrayList(map.entrySet());
-        Collections.sort(list, (o1, o2) -> (o1.getValue().intValue() - o2.getValue().intValue()));
-        String key = "";
-        key = list.get(list.size() - 1).getKey();
-        return key;
+        List<Integer> list = new ArrayList<>();
+        Set<Integer> keys = map.keySet();
+        for (int key :keys){
+            if (map.get(key)==maxnum){
+                list.add(key);
+            }
+        }
+        int[] ret = new int[list.size()];
+        for (int i=0;i<list.size();i++){
+            ret[i]=list.get(i);
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
-        Map<String, Double> map = new HashMap();
-        map.put("1", 8.);
-        map.put("2", 12.);
-        map.put("3", 53.);
-        map.put("4", 53.);
-        map.put("5", 11.);
-        map.put("6", 3.);
-        map.put("7", 3.);
-        map.put("8", 1.);
-        System.out.println(getMapMaxValueKey(map));
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(2);
+        node1.right=node2;
+        node2.left=node3;
+        new Leetcode_501().findMode(node1);
     }
 }
