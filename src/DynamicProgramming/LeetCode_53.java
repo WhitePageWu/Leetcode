@@ -1,16 +1,32 @@
 package DynamicProgramming;
 
+//最大子序和
 public class LeetCode_53 {
     public static void main(String[] args) {
         int[] nums={-2,1,-3,4,-1,2,1,-5,4};
-        maxSubArray(nums);
+        System.out.println(maxSubArray(nums));
     }
     public static int maxSubArray(int[] nums) {
-        int pre = 0, maxAns = nums[0];//pre为当前最大连续子序和，ans为结果
-        for (int x : nums) {
-            pre = Math.max(pre + x, x);//比较子序和加上x和x的值，若x值大，则重新计数
-            maxAns = Math.max(maxAns, pre);//比较最大子序和和当前累加结果的大小，大者为新的最大子序和
+        int ans = nums[0];
+        int res = nums[0];
+        for (int i = 1; i < nums.length; i++){
+            ans = Math.max(ans+nums[i],nums[i]);
+            res = Math.max(ans,res);
         }
-        return maxAns;
+        return res;
+    }
+
+    public static int maxSubArray1(int[] nums){
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        for (int i = 1; i < len; i++){
+            dp[i] = Math.max(dp[i-1]+nums[i],nums[i]);
+        }
+        int max = dp[0];
+        for (int i = 1; i<len;i++){
+            max = Math.max(max,dp[i]);
+        }
+        return max;
     }
 }
