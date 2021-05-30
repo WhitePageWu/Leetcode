@@ -16,7 +16,7 @@ public class Leetcode_123 {
         int[][][] dp = new int[len][3][2];
         dp[0][0][0] = 0;//什么也不做
         dp[0][1][1] = -prices[0]; //发生一次交易，持股，所以-price[0]
-        dp[0][2][1] = Integer.MIN_VALUE;//还没发生交易
+        dp[0][2][1] = -prices[0];//还没发生交易
         for (int i = 1; i < len; i++){
             dp[i][1][1] = Math.max(-prices[i],dp[i-1][1][1]);
             dp[i][1][0] = Math.max(dp[i-1][1][1]+prices[i],dp[i-1][1][0]);

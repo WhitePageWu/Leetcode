@@ -16,10 +16,9 @@ public class Leetcode_188 {
             return maxProfitNoLimit(prices);
         }
         int[][][] dp = new int[len][k+1][2];
-        for (int i = 0;i<len;i++){
-            for (int j = 0; j <= k; j++){
-                dp[i][j][1] = Integer.MIN_VALUE;
-            }
+        for (int i = 1; i<=k;i++){
+            dp[0][i][0] = 0;
+            dp[0][i][1] = -prices[0];
         }
         for (int i = 1; i < len; i++){
             for (int j = 1; j <= k; j++){

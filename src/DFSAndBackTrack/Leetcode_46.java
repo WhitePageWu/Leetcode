@@ -11,11 +11,7 @@ public class Leetcode_46 {
         Deque<Integer> path = new LinkedList<>();
         boolean[] used=new boolean[len];
         dfs(nums,res,path,0,used);
-        Set<List<Integer>> set = new HashSet<>();
-        for (List<Integer> list :res){
-            set.add(list);
-        }
-        return new LinkedList<>(set);
+        return res;
     }
     private void dfs(int[] nums,List<List<Integer>> res ,Deque<Integer> path,int depth,boolean[] used){
         if (depth==nums.length){
