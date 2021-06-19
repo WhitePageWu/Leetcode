@@ -2,15 +2,14 @@ package LinkList;
 
 public class Leetcode_offer_22 {
     public ListNode getKthFromEnd(ListNode head, int k) {
-        ListNode pre = head;
-        ListNode cur =head;
-        while (k-->0){
-            cur=cur.next;
+        ListNode fast = head,slow = head;
+        while (--k>0){
+            fast = fast.next;
         }
-        while (cur!=null){
-            pre=pre.next;
-            cur=cur.next;
+        while (fast.next!=null){
+            fast = fast.next;
+            slow = slow.next;
         }
-        return pre;
+        return slow;
     }
 }

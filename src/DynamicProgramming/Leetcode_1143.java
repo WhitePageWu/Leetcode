@@ -37,4 +37,5 @@ public class Leetcode_1143 {
     public static void main(String[] args) {
         System.out.println(longestCommonSubsequence("abc","def"));
     }
+
 }
