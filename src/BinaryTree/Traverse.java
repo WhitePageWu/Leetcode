@@ -1,8 +1,6 @@
 package BinaryTree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @className: Traverse
@@ -111,5 +109,31 @@ public class Traverse {
         }
         return list;
     }
-
+    /**
+     * 二叉树的层序遍历
+     * */
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res  = new ArrayList<>();
+        if (root == null){
+            return res;
+        }
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> sublist = new ArrayList<>();
+            for (int i = 0; i < size; i++){
+                TreeNode node = queue.removeFirst();
+                sublist.add(node.val);
+                if (node.left != null){
+                    queue.addLast(node.left);
+                }
+                if (node.right != null){
+                    queue.addLast(node.right);
+                }
+            }
+            res.add(sublist);
+        }
+        return res;
+    }
 }
